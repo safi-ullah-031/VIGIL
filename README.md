@@ -11,7 +11,7 @@ The project addresses the critical need for automated surveillance systems that 
 ### UCF50 Dataset
 - **Source**: University of Central Florida (UCF) Action Recognition Dataset
 - **URL**: [UCF50 Dataset](https://www.crcv.ucf.edu/data/UCF50.php)
-- **DOI**: Not available (Third-party dataset)
+- **Dataset**: [KTH Actions Dataset](https://www.csc.kth.se/cvap/actions/)
 - **Description**: The UCF50 dataset contains 50 action categories with approximately 6,618 realistic videos taken from YouTube. The dataset is challenging due to large variations in camera motion, object appearance and pose, object scale, viewpoint, cluttered background, illumination conditions, etc.
 - **Classes**: 50 different human action categories
 - **Format**: Video files (.avi format)
