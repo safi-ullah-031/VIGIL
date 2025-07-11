@@ -1,4 +1,4 @@
-# VIGIL: Suspicious Action Detection in Crowds Using AI Driven UAS
+# VIGIL: Video-based Inference for Ground-level Activity Monitoring and Recognition Using LRCN-Enabled Unmanned Aerial Systems
 
 ## Description
 
@@ -231,20 +231,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Follow Python PEP 8 style guidelines
 - Add comprehensive documentation for new features
 - Include tests for new functionality
-
-## Contact Information
-
-For questions, issues, or contributions, please contact:
-- **Project Maintainer**: [Your Name]
-- **Email**: [Your Email]
-- **GitHub**: [Your GitHub Profile]
-
-## Acknowledgments
-
-- University of Central Florida for providing the UCF50 dataset
-- TensorFlow and Keras communities for the deep learning frameworks
-- OpenCV community for computer vision tools
-- Research community for foundational work in action recognition
 
 ---
 
