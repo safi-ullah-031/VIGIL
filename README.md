@@ -10,15 +10,26 @@ The project addresses the critical need for automated surveillance systems that 
 
 ### UCF50 Dataset
 - **Source**: University of Central Florida (UCF) Action Recognition Dataset
-- **URL**: [UCF50 Dataset](https://www.crcv.ucf.edu/data/UCF50.php)
-- **Dataset**: [KTH Actions Dataset](https://www.csc.kth.se/cvap/actions/)
+- **Dataset URL**: [UCF50 Dataset](https://www.crcv.ucf.edu/data/UCF50.php)
 - **Description**: The UCF50 dataset contains 50 action categories with approximately 6,618 realistic videos taken from YouTube. The dataset is challenging due to large variations in camera motion, object appearance and pose, object scale, viewpoint, cluttered background, illumination conditions, etc.
 - **Classes**: 50 different human action categories
 - **Format**: Video files (.avi format)
 - **Usage**: Used for training and testing the suspicious activity detection models
 
+### KTH Actions Dataset
+- **Source**: Royal Institute of Technology (KTH), Sweden
+- **Dataset URL**: [KTH Actions Dataset](https://www.csc.kth.se/cvap/actions/)
+- **Description**: The KTH Action Dataset contains videos of six human action categories performed several times by 25 subjects in four different scenarios (outdoors, outdoors with scale variation, outdoors with different clothes, indoors). The videos are grayscale with controlled backgrounds and minimal camera motion, making it less challenging than UCF50.
+- **Classes**: 6 human action categories (walking, jogging, running, boxing, hand waving, hand clapping)
+- **Format**: Video files (.avi format)
+- **Usage**: Used as a benchmark for human activity recognition algorithms
+
+
+
 ### Third-Party Data Citation
-This research utilizes the UCF50 dataset, which is a third-party dataset curated and uploaded by the University of Central Florida. The dataset is publicly available for research purposes and has been widely used in computer vision and action recognition research.
+This research utilizes two third-party datasets:
+1. **UCF50 Dataset**: Curated and uploaded by the University of Central Florida, publicly available for research purposes and widely used in computer vision and action recognition research.
+2. **KTH Actions Dataset**: Provided by KTH Royal Institute of Technology, commonly used for human activity recognition research and validation.
 
 ## Code Information
 
@@ -126,6 +137,7 @@ pafy>=0.5.5
    - Frame extraction at 30 FPS
    - Resize frames to 64x64 pixels
    - Normalize pixel values to [0,1] range
+   - Handle both UCF50 and KTH datasets with consistent preprocessing
 
 2. **Feature Extraction**
    - VGG16: Extract spatial features from individual frames
@@ -137,11 +149,13 @@ pafy>=0.5.5
    - Batch size: 4-8 samples
    - Epochs: 50 (with early stopping)
    - Optimizer: Adam with learning rate 0.001
+   - Cross-dataset validation using KTH dataset
 
 4. **Evaluation Metrics**
    - Accuracy, Precision, Recall, F1-Score
    - ROC AUC, Matthews Correlation Coefficient
    - Confusion Matrix Analysis
+   - Cross-dataset performance evaluation
 
 ### Model Architecture Details
 
@@ -187,8 +201,8 @@ model = Sequential([
 4. **Scale Sensitivity**: Model performance varies with object scale and distance
 
 ### Research Limitations
-1. **Limited Dataset**: Only 50 action categories from UCF50
-2. **Single Dataset**: No cross-dataset validation
+1. **Limited Dataset**: Only 50 action categories from UCF50 and 6 from KTH
+2. **Dataset Diversity**: Limited cross-dataset validation between UCF50 and KTH
 3. **Real-time Constraints**: Processing speed limitations for live video
 4. **Generalization**: May not generalize well to unseen action categories
 
@@ -200,9 +214,11 @@ model = Sequential([
 
 ## Citations
 
-### Dataset Citation
+### Dataset Citations
 ```
 Soomro, K., Zamir, A. R., & Shah, M. (2012). UCF101: A dataset of 101 human actions classes from videos in the wild. arXiv preprint arXiv:1212.0402.
+
+Schuldt, C., Laptev, I., & Caputo, B. (2004). Recognizing human actions: A local SVM approach. In Proceedings of the 17th International Conference on Pattern Recognition (ICPR'04) (Vol. 3, pp. 32-36). IEEE.
 ```
 
 ### Related Work
